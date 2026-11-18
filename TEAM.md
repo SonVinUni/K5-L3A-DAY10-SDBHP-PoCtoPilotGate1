@@ -5,7 +5,7 @@
 - Tên nhóm (`TenNhom`, không dấu, không khoảng trắng): `SDBHP`
 - Lớp: `L3A`
 - Repo của bàn: `K5-L3A-DAY10-SDBHP-PoCtoPilotGate1`
-- Thẻ sự cố đã bốc (S1–S8): ___ (điền phút 125)
+- Thẻ sự cố đã bốc (S1–S8): S2
 
 ## Thành viên
 
@@ -79,24 +79,25 @@ Vai Kỹ sư cổng (code chính): chạy lệnh 2/3/4, viết 2–3 cổng tron
 
 ### Phần việc phụ trách
 
-Vai Kỹ sư cổng (đọc trace): đọc trace cùng Phong, chỉ ra ticket nào còn hỏng (câu 2.2, B2), cùng viết behavioral test — "cùng một người không viết code" theo câu 2.8 (B7.3); vòng 2: dò trace sự cố ≥ 2 ticket hỏng theo hai kiểu khác nhau (câu 3.1, C2), cột trace ở C7. Cầm bút Phiếu B mục B2, B7.3; Phiếu C mục C2, C7 (cột trace).
+Vai Kỹ sư cổng (đọc trace): đọc trace cùng Phong, chỉ ra ticket nào còn hỏng (câu 2.2, B2), cùng viết behavioral test — "cùng một người không viết code" theo câu 2.8 (B7.3); vòng 2: dò trace sự cố ≥ 2 ticket hỏng theo hai kiểu khác nhau (câu 3.1, C2), cột trace ở C7. Cầm bút Phiếu B mục B2, B7.3; Phiếu C mục C0–C12 (đặc biệt C2, C7 cột trace).
 
 ### Đóng góp cụ thể
 
 - Dò `T-002@55` ở mốc base, xếp loại lỗi (lỗi chìm: tiền và lỗi hãng ghi theo số khách khai, tracking ghi khác, hãng chịu) và điền bảng B2.
-- Viết 2 ticket hiểm cho câu 2.8 và chạy `--adhoc`; vòng 2 dò 2 ticket hỏng hai kiểu của thẻ, phân loại nguồn (C2).
-- (Điền thêm mã commit / mã lần chạy: …)
+- Viết 2 ticket hiểm cho câu 2.8 và chạy `--adhoc`; vòng 2 dò các ticket hỏng hai kiểu của thẻ S2 (`S2-01`, `S2-04`, `S2-20`, `S2-40/44`), phân loại nguồn (C2).
+- Hoàn thiện toàn bộ nội dung Phiếu C (`templates/form-c-incident.md`) từ C0 đến C12 khớp thẻ S2 và hash code `4d9ef8`.
+- Thực hiện commit: `CP5: thien Phieu C C0-C12 - S2: G2 chan inject (ticket + checkout_note), G4 chan tran theo khach`.
 
 ### Bằng chứng
 
-- Mã commit: (điền sau)
-- Mã lần chạy: (điền `runs/<mã>` + ticket@seed đã dò)
-- Dòng phiếu: B2, B7.3, C2.
+- Mã commit: `0bb8670` (cập nhật Phiếu A), `1592825` (hoàn thiện Phiếu C C0-C12)
+- Mã lần chạy: `R-S2-grade-20261118-231825-4d9ef8`, `R-S2-after-20261118-231425-4d9ef8`, ticket@seed: `S2-01@11`, `S2-04@11`, `S2-20@11`, `S2-40@11`, `S2-44@11`
+- Dòng phiếu: B2, B7.3, C0–C12
 
 ### Exit ticket
 
-- Học được: …
-- Còn chưa chắc: …
+- Học được: Hiểu rõ cơ chế Prompt Injection trực tiếp (trong ticket) và gián tiếp (trong checkout_note), tầm quan trọng của việc đặt gate ở tầng write_gate để chặn đứng mọi thất thoát tài chính và lỗi oan trước khi ra khỏi hệ thống.
+- Còn chưa chắc: Cách nhận diện và ngăn chặn hành vi tấn công phân tán (Sybil attack - dùng nhiều tài khoản/SĐT khác nhau để vượt trần) khi chạy pilot trên môi trường thực tế.
 
 ## NguyenTruongDuy-2A202603589
 
