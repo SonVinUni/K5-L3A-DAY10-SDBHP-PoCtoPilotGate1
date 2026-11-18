@@ -1,28 +1,43 @@
 {
-  "_huong_dan": "Cổng kinh doanh, vận hành, pháp lý mà trợ lý PHẢI tuân theo. Bàn điền ở vòng 1, chốt bằng python3 -m lab10.checkpoint, rồi được sửa tiếp ở vòng 2. null = chưa đặt cổng này. Giải thích từng dòng: docs/guide.md, mục Cổng trong config (#ban-do).",
-  "business": {
-    "daily_refund_cap_vnd": 1000000,
-    "cost_budget_per_ticket_vnd": 1500,
-    "pilot_scope": {"mode": "warehouse", "warehouses": ["HN", "HCM"], "percent": 100},
-    "roi_min": 0.2
+ "_huong_dan": "Cổng kinh doanh, vận hành, pháp lý. VÒNG 2 (sau thẻ S2): pilot = HN+DN+CT (cắt HCM vì 10.570đ > làm tay), 1 người trực (công suất 6 ca/giờ, 6 ca chờ/ngày trong S2 vẫn ≤ 480 phút), thêm 2 điều kiện dừng (trần theo khách G4, kho đắt hơn làm tay). Bản chốt vòng 1 vẫn ở operating_gates.round1.json.",
+ "business": {
+  "daily_refund_cap_vnd": 1000000,
+  "cost_budget_per_ticket_vnd": 1500,
+  "pilot_scope": {
+   "mode": "warehouse",
+   "warehouses": [
+    "HN",
+    "DN",
+    "CT"
+   ],
+   "percent": 100
   },
-  "operations": {
-    "pic": "NV-TUNG",
-    "approver_id": "NV-HANH",
-    "reviewers_on_shift": 2,
-    "review_capacity_per_hour": 12,
-    "max_queue_wait_minutes": 60,
-    "stop_conditions": [
-      "Khi có 1 lỗi ghi oan cho hãng (sự kiện legal_gate/wrongful fault trong report) thì tắt công tắc file_carrier_fault",
-      "Khi số ca bị ùn trong 1 ca vận hành >= 2 thì gọi thêm 1 người trực và cân nhắc thu hẹp pilot_scope",
-      "Khi chi phí mỗi ticket > 10000đ (vượt làm tay) trong 2 ca liên tiếp thì thu hẹp phạm vi hoặc Dừng"
-    ],
-    "alert_channel": "Kênh CSKH-LogiX (kênh nội bộ của ca trực); người trực nhắn kèm mã lần chạy runs/<mã>",
-    "decision_note": true,
-    "review_sampling_pct": 10
-  },
-  "legal": {
-    "pii_fields_blocked_to_third_party": ["name", "phone", "street", "recipient_contact"],
-    "carrier_fault_requires_recorded_cause": true
-  }
+  "roi_min": 0.2
+ },
+ "operations": {
+  "pic": "NV-TUNG",
+  "approver_id": "NV-HANH",
+  "reviewers_on_shift": 1,
+  "review_capacity_per_hour": 6,
+  "max_queue_wait_minutes": 60,
+  "stop_conditions": [
+   "Khi có 1 lỗi ghi oan cho hãng (sự kiện legal_gate/wrongful fault trong report) thì tắt công tắc file_carrier_fault",
+   "Khi số ca bị ùn trong 1 ca vận hành >= 2 thì gọi thêm 1 người trực và cân nhắc thu hẹp pilot_scope",
+   "Khi chi phí mỗi ticket > 10000đ (vượt làm tay) trong 2 ca liên tiếp thì thu hẹp phạm vi hoặc Dừng",
+   "Khi tổng hoàn TỰ ĐỘNG của một khách trong ngày chạm trần Ops 300.000đ (sự kiện guard_customer_cap / cổng G4) thì khoản kế tiếp và các khoản sau của khách đó trong ngày CHUYỂN NGƯỜI, không tự động",
+   "Khi kho nào có chi phí mỗi ticket > làm tay (10.000đ) trong 2 ca liên tiếp thì cắt kho đó khỏi business.pilot_scope (ticket của kho đó làm tay)"
+  ],
+  "alert_channel": "Kênh CSKH-LogiX (kênh nội bộ của ca trực); người trực nhắn kèm mã lần chạy runs/<mã>",
+  "decision_note": true,
+  "review_sampling_pct": 10
+ },
+ "legal": {
+  "pii_fields_blocked_to_third_party": [
+   "name",
+   "phone",
+   "street",
+   "recipient_contact"
+  ],
+  "carrier_fault_requires_recorded_cause": true
+ }
 }
