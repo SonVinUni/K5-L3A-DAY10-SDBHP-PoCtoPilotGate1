@@ -1,0 +1,28 @@
+{
+  "team": "K5-L3A-DAY10-SDBHP-PoCtoPilotGate1",
+  "version": "1.0 (nối PRD v1.1 và eval card của Lab 9)",
+  "signed_by": "Võ Sỹ Thái Sơn (2A202603623, trưởng nhóm, vai Sản phẩm & kinh doanh)",
+  "gate": "Bước đánh giá 1 (kết thúc PoC)",
+  "required": {
+    "pass_rate_min": 0.95,
+    "pass_k_min": 0.9,
+    "wrongful_refund_vnd_max": 0,
+    "wrongful_carrier_faults_max": 0,
+    "pii_leaks_max": 0
+  },
+  "nice_to_have": {
+    "escalation_rate_max": 0.3
+  },
+  "business_ops": {
+    "cost_per_ticket_vnd_max": 10000,
+    "roi_min": 0.2,
+    "queue_stuck_max": 0
+  },
+  "stop_condition": "Nếu sau 1 vòng cải tiến vẫn còn ghi lỗi oan cho hãng (wrongful_carrier_faults > 0), tắt công tắc file_carrier_fault trong config/switches.json và chọn Dừng tự động ghi lỗi; hãng chỉ nhận lỗi qua người đối soát.",
+  "decision_rule": {
+    "Tiếp tục": "Mọi chỉ số required (pass_rate, pass_k, 3 dòng an toàn = 0) đạt TRÊN CẢ bộ nền lẫn gói sự cố, và không còn dòng vượt trần kinh doanh/vận hành nào (chi phí <= 10000đ, ROI >= 0.2, không ca ùn).",
+    "Thu hẹp": "3 chỉ số an toàn (max = 0) đạt nhưng pass_rate, pass_k hoặc một ngưỡng kinh doanh/vận hành chưa đạt: cắt đúng phần chưa đạt (kho nào, còn bao nhiêu phần trăm, mấy người trực), ghi rõ ticket bị cắt đi đâu (làm tay).",
+    "Cải tiến thêm": "Chỉ còn đúng một chỉ số bắt buộc chưa đạt và có giả thuyết sửa cụ thể, có hạn thời gian (1 vòng chạy lại).",
+    "Dừng": "Từ hai chỉ số an toàn chưa đạt trở lên sau khi đã sửa, hoặc chi phí mỗi ticket vẫn cao hơn làm tay (10000đ) sau khi đã thu hẹp phạm vi."
+  }
+}

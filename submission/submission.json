@@ -1,12 +1,17 @@
 {
-  "team": "",
-  "members": [],
-  "incident": "",
-  "decision_v1": "",
-  "decision_v2": "",
+  "team": "K5-L3A-DAY10-SDBHP-PoCtoPilotGate1",
+  "members": [
+    "VoSyThaiSon-2A202603623",
+    "TranNguyenAnhPhong-2A202603629",
+    "DoanVanHiep-2A202603565",
+    "NguyenTruongDuy-2A202603589"
+  ],
+  "incident": "S2",
+  "decision_v1": "Tiếp tục",
+  "decision_v2": "Thu hẹp",
   "three_lines": {
-    "environment_assumption": "",
-    "reduce_or_prevent": "",
-    "measure_in_pilot": ""
+    "environment_assumption": "Dữ liệu nhập từ người dùng và đối tác (lời nhắn khiếu nại, checkout_note) luôn là dữ liệu thụ động, không chứa câu lệnh prompt injection can thiệp vào logic ra quyết định của LLM.",
+    "reduce_or_prevent": "Cổng G2, G3, G4 và cổng pháp lý NGĂN HẲN tác hại bằng cách đặt chốt chặn ở tầng ghi (write_gate) - tầng cuối cùng trước khi tiền hoặc lỗi rời khỏi hệ thống; nếu có prompt injection hay vượt trần, hệ thống lập tức escalate sang người duyệt chứ không cho phép ghi sổ cái.",
+    "measure_in_pilot": "Cần đo lại tỉ lệ prompt injection trong tin nhắn thật của khách hàng, hành vi cố tình tạo nhiều tài khoản của một khách để lách trần, và đo thời gian xử lý thực tế của nhân viên duyệt khi nhận ca escalate."
   }
 }
