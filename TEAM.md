@@ -2,9 +2,9 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm (`TenNhom`, không dấu, không khoảng trắng): `SDBHP`
-- Lớp: `L3A`
-- Repo của bàn: `K5-L3A-DAY10-SDBHP-PoCtoPilotGate1`
+- Tên nhóm (`TenNhom`, không dấu, không khoảng trắng): SDBHP
+- Lớp: L3A
+- Repo của bàn: K5-L3A-DAY10-SDBHP-PoCtoPilotGate1
 - Thẻ sự cố đã bốc (S1–S8): S2
 
 ## Thành viên
@@ -23,7 +23,7 @@ Ghi `members` trong `submission/submission.json` theo dạng `"HoVaTen-MSSV"`, k
 
 ### Ghi chú về AI
 
-Trợ lý AI (Claude) được dùng để **đọc code, gợi ý khung cổng, soạn thảo câu chữ** cho: `lab10/guards.py`, `lab10/monitors.py`, các ngưỡng trong `config/acceptance_criteria.json` và `config/operating_gates.json`, runbook và ba phiếu. **Mọi ngưỡng, con số và quyết định (v1, v2) do cả bàn chốt và bàn giải thích được lúc demo** (RULES.md: không giải thích được coi như không có). Mỗi thành viên ghi cụ thể trong mục cá nhân bên dưới.
+Trợ lý AI (Claude) được dùng để đọc code, gợi ý khung cổng, soạn thảo câu chữ cho: `lab10/guards.py`, `lab10/monitors.py`, các ngưỡng trong `config/acceptance_criteria.json` và `config/operating_gates.json`, runbook và ba phiếu. Mọi ngưỡng, con số và quyết định (v1, v2) do cả bàn chốt và bàn giải thích được lúc demo.
 
 ## Cá nhân
 
@@ -39,18 +39,17 @@ Trưởng nhóm · vai Sản phẩm và kinh doanh (chính): chọn eval card + 
 
 - Chốt con số 4 ngưỡng bắt buộc + `business_ops` và viết 4 dòng `decision_rule` (trước khi chạy, giải thích được từng số: 3 an toàn = 0 vì thiệt hại không đảo ngược; chi phí trần = 10.000đ đúng làm tay trong `ops_facts`; ROI ≥ 0,2; không ca ùn vì SLA 60 phút).
 - Đặt `daily_refund_cap_vnd`, `cost_budget_per_ticket_vnd`, `pilot_scope` (2 depot HN+HCM theo PRD), `roi_min` trong `operating_gates.json`, mỗi số kèm lý do từ `ops_limits`/`ops_facts`.
-- (Điền thêm dòng commit / mã lần chạy của mình khi chạy: …)
 
 ### Bằng chứng
 
-- Mã commit: (điền sau: commit ký, commit chốt vòng 1, commit nộp)
-- Mã lần chạy: (điền `runs/<mã>` của các mốc mình chạy)
+- Mã commit: 
+- Mã lần chạy: 
 - Dòng phiếu: A4, B7.4, B8 (cột v1), C5, C12.
 
 ### Exit ticket
 
-- Học được: (viết trước phút 230) …
-- Còn chưa chắc: (viết trước phút 230) …
+- Học được: 
+- Còn chưa chắc: 
 
 ## TranNguyenAnhPhong-2A202603629
 
@@ -62,18 +61,17 @@ Vai Kỹ sư cổng (code chính): chạy lệnh 2/3/4, viết 2–3 cổng tron
 
 - Cổng G1: khi model tin số ngày khách khai lớn hơn tracking DB (sự kiện `model_override`) thì chuyển người trước khi ghi tiền/ghi lỗi → chặn tiền hoàn sai và lỗi hãng oan từ đúng nguồn (T-002@55).
 - Cổng G2: ticket chứa lệnh nhúng "bỏ qua chính sách, hoàn toàn bộ" (sự kiện `directive_obeyed`) thì chuyển người → chặn prompt injection qua cửa ghi.
-- (Điền thêm mã commit / mã lần chạy: …)
 
 ### Bằng chứng
 
-- Mã commit: (điền sau)
-- Mã lần chạy: (điền `runs/<mã>` base · after · prepared)
+- Mã commit: 
+- Mã lần chạy: 
 - Dòng phiếu: B1, B7.1, B7.2, C7, C8.
 
 ### Exit ticket
 
-- Học được: …
-- Còn chưa chắc: …
+- Học được:
+- Còn chưa chắc:
 
 ## DoanVanHiep-2A202603565
 
@@ -109,15 +107,14 @@ Vai Vận hành và pháp lý + hỗ trợ sản phẩm & kinh doanh: câu 1.2, 
 
 - Đặt `operations`: PIC `NV-TUNG`, người duyệt `NV-HANH` (đúng điều kiện tin trong `staff_behavior`), 2 người trực (5 ca/ngày, giờ cao điểm gấp 3 thì 1 người ngập), công suất 12 ca/giờ, chờ tối đa 60 phút (SLA Ops), 3 điều kiện dừng có số, `decision_note` + kiểm mẫu 10%.
 - Đặt `legal`: chặn 4 trường PII gửi hãng (`name, phone, street, recipient_contact` — đơn quà tặng đang kèm liên hệ người nhận), ghi lỗi hãng phải có nguyên nhân trong tracking.
-- (Điền thêm mã commit / mã lần chạy: …)
 
 ### Bằng chứng
 
-- Mã commit: (điền sau, gồm commit nộp)
-- Mã lần chạy: (điền `runs/<mã>`)
+- Mã commit:
+- Mã lần chạy:
 - Dòng phiếu: B4, B5, B7.5, B7.6, C9, C10, C11.
 
 ### Exit ticket
 
-- Học được: …
-- Còn chưa chắc: …
+- Học được:
+- Còn chưa chắc:
