@@ -42,14 +42,14 @@ Trưởng nhóm · vai Sản phẩm và kinh doanh (chính): chọn eval card + 
 
 ### Bằng chứng
 
-- Mã commit: 
-- Mã lần chạy: 
+- Mã commit: `c2abbfe` (khởi tạo repo), `64d47fc` (CP5: cập nhật manifest + báo cáo trong submission/), `24da00d` (cập nhật TEAM.md).
+- Mã lần chạy: grade chính thức `R-S2-grade-20261118-204422-4d9ef8` (code hash `4d9ef8`); 3 mốc trong manifest: base `R-S2-before-20261118-204423-4d9ef8`, prepared `R-S2-prepared-20261118-204424-4d9ef8`, after `R-S2-after-20261118-204424-4d9ef8` (cả ba có sẵn trong `submission/runs/`).
 - Dòng phiếu: A4, B7.4, B8 (cột v1), C5, C12.
 
 ### Exit ticket
 
-- Học được: 
-- Còn chưa chắc: 
+- Học được: Con đường ra quyết định từ bằng chứng: ngưỡng ký (tiêu chí khoá hash) chạy trước khi nhìn số, mốc prepared bị khoá bằng checkpoint (hash `d7b3e911`) nên bằng chứng vòng 1 không sửa được sau khi biết sự cố; bài nộp tự chứng minh qua manifest (hash từng file) và journal (lịch sử các lần chạy).
+- Còn chưa chắc: Điều kiện dừng "3 dòng an toàn = 0" của dòng "Tiếp tục" khi pilot thật có hành vi khách gom nhiều đơn (bộ thử chỉ có C-03 với 5 đơn); mức tăng kiểm mẫu từ 10% lên 25% khi người duyệt không tin (Runbook 5) chưa được chạy thử.
 
 ## TranNguyenAnhPhong-2A202603629
 
@@ -64,14 +64,14 @@ Vai Kỹ sư cổng (code chính): chạy lệnh 2/3/4, viết 2–3 cổng tron
 
 ### Bằng chứng
 
-- Mã commit: 
-- Mã lần chạy: 
+- Mã commit: `99c13b2` (CP1: cổng vòng 1 G1/G2 + 2 chỉ số monitor + config chuẩn bị), `41871d4` (CP4: thêm cổng G3 + G4 vào `guards.py`, thêm monitor `customer_cap_near_events` vào `monitors.py`).
+- Mã lần chạy: `R-S2-prepared-20261118-204424-4d9ef8` (mốc prepared chạy bằng bản chốt vòng 1: G2 chặn 20/20 trial injection, nhưng config vận hành vòng 1 vượt trần chi phí), `R-S2-after-20261118-204424-4d9ef8` (mốc after, mã code `4d9ef8`: G3/G4 chặn, chi phí 7.636đ, ROI 0.31).
 - Dòng phiếu: B1, B7.1, B7.2, C7, C8.
 
 ### Exit ticket
 
-- Học được:
-- Còn chưa chắc:
+- Học được: Chênh nhau giữa cổng phòng ngừa (G1/G2 viết trước khi biết sự cố, chốt bằng checkpoint) và cổng xử lý (G3/G4 đặt sau khi bốc thẻ, ghi rõ ở C7); gate đặt ở cửa ghi (`write_gate`) nên thiệt hại không kịp ra sổ cái, dù chữ lệnh vẫn đi vào mô hình (sự kiện `directive_obeyed` vẫn hiện trong trace, chỉ bị chặn trước khi ghi).
+- Còn chưa chắc: nhánh "nguồn sự thật sai" (bảng `approvals`/`ops_limits` bị ghi sai) thì G3/G4 chặn nhầm hoặc chặn sót (dòng risk register C10); khoản "vô chủ" (không có mã duyệt) chỉ bị chặn bởi trần tổng G4, chưa chặn được ở gốc.
 
 ## DoanVanHiep-2A202603565
 
@@ -89,7 +89,7 @@ Vai Kỹ sư cổng (đọc trace): đọc trace cùng Phong, chỉ ra ticket n�
 ### Bằng chứng
 
 - Mã commit: `0bb8670` (cập nhật Phiếu A), `1592825` (hoàn thiện Phiếu C C0-C12)
-- Mã lần chạy: `R-S2-grade-20261118-231825-4d9ef8`, `R-S2-after-20261118-231425-4d9ef8`, ticket@seed: `S2-01@11`, `S2-04@11`, `S2-20@11`, `S2-40@11`, `S2-44@11`
+- Mã lần chạy: `R-S2-after-20261118-231826-4d9ef8` (lần chạy lại mốc after sau khi hoàn thiện Phiếu C, có trong `submission/runs/`), `R-S2-after-20261118-204424-4d9ef8` (mã chính thức trong manifest); ticket@seed dò trace: `S2-01@11`, `S2-04@11`, `S2-20@11`, `S2-40@11`, `S2-44@11`
 - Dòng phiếu: B2, B7.3, C0–C12
 
 ### Exit ticket
@@ -110,11 +110,11 @@ Vai Vận hành và pháp lý + hỗ trợ sản phẩm & kinh doanh: câu 1.2, 
 
 ### Bằng chứng
 
-- Mã commit:
-- Mã lần chạy:
+- Mã commit: `861558d` (CP4: mục `operations`/`legal` + `stop_conditions` vòng 2 trong `config/operating_gates.json`: pilot HN+DN+CT, 1 người trực, công suất 6 ca/giờ).
+- Mã lần chạy: `R-S2-prepared-20261118-204424-4d9ef8` (cấu hình vận hành vòng 1 HN+HCM, 2 người trực gặp S2: 3 dòng vượt trần, chi phí 20.645đ, ROI −0.52) và `R-S2-after-20261118-204424-4d9ef8` (vòng 2: chi phí 7.636đ, ROI 0.31, 0 ca ùn trong SLA 60 phút).
 - Dòng phiếu: B4, B5, B7.5, B7.6, C9, C10, C11.
 
 ### Exit ticket
 
-- Học được:
-- Còn chưa chắc:
+- Học được: Cổng vận hành không phải viết code: đặt bằng con số trong config (số người trực, SLA chờ, điều kiện dừng), cùng một lớp thẩm định với cổng kỹ thuật; khi một cấu hình vận hành (kho HCM) tự nó vượt trần làm tay thì cắt phạm vi thay vì chắp vá.
+- Còn chưa chắc: công suất 6 ca/giờ của 1 người trực khi giờ cao điểm (hệ số x3, Runbook B7.6) vẫn giữ được 0 ca ùn; ngưỡng kiểm mẫu 10% có đủ để phát hiện lỗi khi pilot thật mở rộng.
